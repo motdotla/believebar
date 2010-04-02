@@ -1,5 +1,18 @@
+!!!
 %html
   %head
-    %title Haml on Sinatra Example
+    %title Believe Bar
+    %link{:rel=>'stylesheet', :href=>'/stylesheets/reset.css', :type => "text/css"} 
+    %link{:rel=>'stylesheet', :href=>'/stylesheets/text.css', :type => "text/css"}
+    %link{:rel=>'stylesheet', :href=>'/stylesheets/960.css', :type => "text/css"}
+    %link{:rel=>'stylesheet', :href=>'/stylesheets/style.css', :type => "text/css"}       
   %body
-    =yield
+    #page.container_16
+      #header
+        .grid_5#logo
+          %img{:src => "/images/believe-bar-logo-313.png"}
+        .grid_7#nav
+          %a{:href => "#"} Home
+          %a{:href => "#"} About
+      #content
+        = yield
