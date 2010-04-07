@@ -5,14 +5,66 @@
     %link{:rel=>'stylesheet', :href=>'/stylesheets/reset.css', :type => "text/css"} 
     %link{:rel=>'stylesheet', :href=>'/stylesheets/text.css', :type => "text/css"}
     %link{:rel=>'stylesheet', :href=>'/stylesheets/960.css', :type => "text/css"}
-    %link{:rel=>'stylesheet', :href=>'/stylesheets/style.css', :type => "text/css"}       
-  %body
+    %link{:rel=>'stylesheet', :href=>'/stylesheets/style.css', :type => "text/css"}
+    / javascripts
+    %script{:type => "text/javascript", :src  => "/javascripts/jquery.js"}
+    %script{:type => "text/javascript", :src  => "/javascripts/sammy.js"}
+    %script{:type => "text/javascript", :src  => "/javascripts/scroll_to.js"}
+    %script{:type => "text/javascript", :src  => "/javascripts/localscroll.js"}
+    %script{:type => "text/javascript", :src  => "/javascripts/index.js"}
+  %body#section_home
     #page.container_16
-      #header
-        .grid_5#logo
-          %img{:src => "/images/believe-bar-logo-313.png"}
-        .grid_7#nav
-          %a{:href => "#"} Home
-          %a{:href => "#"} About
-      #content
-        = yield
+      .grid_1 &nbsp;
+      #wrapper.grid_14
+        #logo.grid_6.alpha
+          %img{:src => "/images/logo.png"}
+          
+        #nav.grid_8.omega
+          %ul
+            %li
+              %a{:href => "#section_home"} Home
+            %li
+              %a{:href => "#section_about"} About Us
+            %li
+              %a{:href => "#section_bars"} Bars
+            %li
+              %a{:href => "#section_contact"} Contact
+        .section.grid_14.alpha.omega
+          .content
+            %img{:src => "/images/message0.jpg"}
+        #section_about.section.grid_14.alpha.omega
+          %h2 About Us
+          .content
+            %h3
+              The Story
+            %p
+              Sarah, the Founder of "Believe Nutrition Bar" personally lost a close friend at the age of 17, and an uncle to cancer. These two experiences fueled Sarah's passion to do something about this deadly disease and raise awareness on prevention. And what she found was that B vitamins could help.
+            %h3
+              The Recipe
+            %p
+              After countless batches baked in Sarah's small granny flat apartment, she finally developed a tasty coffee baked good that is healthy and contains a high vitamin B content. B vitamins help to cleanse the body, boost the immune system, and promote a healthy cell growth for further prevention of many diseases such as Breast Cancer, Diabetes, Heart Disease, and more. So... "Be Good to Yourself".
+            %h3
+              The Purpose
+            %p
+              "Believe Nutrition Bar" not only produces tasty coffee baked goods that are healthy, but each bar has a causal purpose. The first nutrition bar (the pink ribbon bar) is dedicated to The Breast Cancer Research Foundation. So not only do you get a tasty baked treat, but you get to donate to a great cause! The second bar and so on will focus on other non-profits dedicated to those in need in Africa, Diabetes health, Heart health and more. Each bar will have a different foundation attached to it, altering the color of the awareness ribbon on the logo, its focus on B vitamin prevention, and nutritional facts.
+              
+        #section_bars.section.grid_14.alpha.omega
+          %h2 Our Bars
+          .content
+            %h3
+              Our Bars
+            %p
+              
+        / .content
+        /   = yield
+        / #footer.grid_14
+        /   Believe Nutrition Bar
+        
+        #section_contact.section.grid_14.alpha.omega
+          %h2 Contact
+          .content
+            %p 
+              Contact us at 951.318.5626 or <a href="mailto:sarahmotte@gmail.com">sarahmotte@gmail.com</a>
+        
+      .grid_1 &nbsp;
+      .clear
