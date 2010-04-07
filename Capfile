@@ -4,12 +4,12 @@ default_run_options[:pty] = true
 
 # be sure to change these
 set :user, 'scottmotte'
-set :domain, 'believenutritionbar.com'
+set :domain, 'aquaman.dreamhost.com'
 set :application, 'believenutritionbar.com'
 
 # the rest should be good
 set :repository,  "#{user}@#{domain}:git/#{application}.git" 
-set :deploy_to, "/home/#{user}/#{domain}"
+set :deploy_to, "/home/#{user}/#{application}"
 set :deploy_via, :remote_cache
 set :scm, 'git'
 set :branch, 'master'
