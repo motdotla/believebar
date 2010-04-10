@@ -32,3 +32,9 @@ set :deploy_via, :remote_cache
 default_run_options[:pty] = true
 ssh_options[:paranoid] = false
 ssh_options[:port] = 5000
+
+namespace :deploy do
+  task :install_gems_on_server do
+    sudo "sh -c 'cd #{latest_release} && ruby script/install_gems'"
+  end
+end
