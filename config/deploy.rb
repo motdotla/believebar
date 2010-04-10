@@ -37,6 +37,22 @@ namespace :deploy do
   task :install_gems_on_server do
     sudo "sh -c 'cd #{latest_release} && ruby lib/install_gems.rb'"
   end
+  
+  desc "Custom restart task for unicorn"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    sudo "sh -c 'cd #{latest_release} && bluepill load config/unicorn.pill'"
+    sudo "sh -c 'cd #{latest_release} && bluepill believenutritionbar.com-production restart production'"
+  end
+
+  desc "Custom start task for unicorn"
+  task :start, :roles => :app do
+    sudo "sh -c 'cd #{latest_release} && bluepill believenutritionbar.com-production start production'"
+  end
+
+  desc "Custom stop task for unicorn"
+  task :stop, :roles => :app do
+    sudo "sh -c 'cd #{latest_release} && bluepill believenutritionbar.com-production stop production'"
+  end
 end
 
 

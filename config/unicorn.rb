@@ -1,5 +1,5 @@
 # unicorn_rails -c /home/smart/apps/smartevents.com/current/config/unicorn.rb -E production -D
-# rails_env = ENV['RAILS_ENV'] || 'production'
+rack_env = 'production'
  
 # 16 workers and 1 master
 worker_processes 6
@@ -12,10 +12,7 @@ preload_app true
 timeout 120
  
 # Listen on a Unix data socket
-listen "unix:~/code/sinatra/believenutritionbar.com/unicorn.sock", :backlog => 2048
- 
-##
-# REE
+listen "unix:/home/scottmotte/apps/believenutritionbar.com/unicorn.sock", :backlog => 2048
  
 # http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
 if GC.respond_to?(:copy_on_write_friendly=)
@@ -64,7 +61,7 @@ after_fork do |server, worker|
  
   begin
     uid, gid = Process.euid, Process.egid
-    user, group = 'smart_events', 'smart_events'
+    user, group = 'scottmotte', 'scottmotte'
     target_uid = Etc.getpwnam(user).uid
     target_gid = Etc.getgrnam(group).gid
     worker.tmp.chown(target_uid, target_gid)
@@ -74,7 +71,7 @@ after_fork do |server, worker|
       Process::UID.change_privilege(target_uid)
     end
   rescue => e
-    if RAILS_ENV == 'development'
+    if RACK_ENV == 'development'
       STDERR.puts "couldn't change user, oh well"
     else
       raise e
