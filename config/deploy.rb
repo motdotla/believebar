@@ -38,3 +38,6 @@ namespace :deploy do
     sudo "sh -c 'cd #{latest_release} && ruby script/install_gems'"
   end
 end
+
+
+after 'deploy:update_code', 'deploy:install_gems_on_server', 'deploy:cleanup'
