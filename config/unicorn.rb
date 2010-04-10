@@ -2,7 +2,7 @@
 rack_env = 'production'
  
 # 16 workers and 1 master
-worker_processes 6
+worker_processes 1
  
 # Load rails+github.git into the master before forking workers
 # for super-fast worker spawn times
