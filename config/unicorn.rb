@@ -6,7 +6,7 @@ worker_processes 6
  
 # Load rails+github.git into the master before forking workers
 # for super-fast worker spawn times
-preload_app true
+# preload_app true
  
 # Restart any workers that haven't responded in 30 seconds
 timeout 120
@@ -32,7 +32,7 @@ before_fork do |server, worker|
   #
   # Using this method we get 0 downtime deploys.
  
-  old_pid = RAILS_ROOT + '/tmp/pids/unicorn.pid.oldbin'
+  old_pid = '/home/scottmotte/apps/believenutritionbar.com/current/tmp/pids/unicorn.pid.oldbin'
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
