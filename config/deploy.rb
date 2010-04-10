@@ -39,30 +39,19 @@ namespace :deploy do
   end
   
   desc "Custom restart task for unicorn"
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    puts "================================="
-    puts "================================="
-    puts "================================="
-    puts "================================="
-    puts "Go Bluepill!"
-    sudo "bluepill load /home/scottmotte/app/believenutritionbar.com/current/config/unicorn.pill"
-    puts "================================="
-    puts "================================="
-    puts "================================="
-    puts "================================="
-    
-    # sudo "sh -c 'cd #{latest_release} && bluepill load config/unicorn.pill'"
-    # sudo "sh -c 'cd #{latest_release} && bluepill believenutritionbar.com-production restart production'"
+  task :restart, :roles => :app, :except => { :no_release => true } do    
+    sudo "sh -c 'cd #{latest_release} && /opt/ruby-enterprise-1.8.7-2010.01/bin/bluepill load config/unicorn.pill'"
+    sudo "sh -c 'cd #{latest_release} && /opt/ruby-enterprise-1.8.7-2010.01/bin/bluepill believenutritionbar-production restart production'"
   end
 
   desc "Custom start task for unicorn"
   task :start, :roles => :app do
-    # sudo "sh -c 'cd #{latest_release} && bluepill believenutritionbar.com-production start production'"
+    sudo "sh -c 'cd #{latest_release} && /opt/ruby-enterprise-1.8.7-2010.01/bin/bluepill believenutritionbar-production start production'"
   end
 
   desc "Custom stop task for unicorn"
   task :stop, :roles => :app do
-    # sudo "sh -c 'cd #{latest_release} && bluepill believenutritionbar.com-production stop production'"
+    sudo "sh -c 'cd #{latest_release} && /opt/ruby-enterprise-1.8.7-2010.01/bin/bluepill believenutritionbar-production stop production'"
   end
 end
 
