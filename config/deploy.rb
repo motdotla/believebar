@@ -35,7 +35,7 @@ ssh_options[:port] = 5000
 
 namespace :deploy do
   task :install_gems_on_server do
-    sudo "sh -c 'cd #{latest_release} && ruby script/install_gems'"
+    sudo "sh -c 'cd #{latest_release} && ruby lib/install_gems.rb'"
   end
 end
 
