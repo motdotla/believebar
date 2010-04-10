@@ -16,7 +16,7 @@ set :application, 'believenutritionbar.com'
 # =============================================================================
 # DEPLOY TO
 # =============================================================================
-set :deploy_to, "/home/scottmotte/believenutritionbar.com"
+set :deploy_to, "/home/scottmotte/apps/believenutritionbar.com"
 set :scm_verbose, true
 set :use_sudo, false
 
