@@ -42,7 +42,7 @@ namespace :deploy do
   
   desc "Custom restart task for unicorn"
   task :restart, :roles => :app, :except => { :no_release => true } do    
-    sudo "sh -c 'cd #{latest_release} && /opt/ruby-enterprise-1.8.7-2010.01/bin/bluepill load config/unicorn.pill'"
+    # sudo "sh -c 'cd #{latest_release} && /opt/ruby-enterprise-1.8.7-2010.01/bin/bluepill load config/unicorn.pill'"
     sudo "sh -c 'cd #{latest_release} && /opt/ruby-enterprise-1.8.7-2010.01/bin/bluepill believenutritionbar-production restart production'"
   end
 
