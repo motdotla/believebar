@@ -1,7 +1,7 @@
 # http://superfeedr.posterous.com/superfeedr-blog-unicorn
 
 # Use at least one worker per core
-worker_processes 2
+worker_processes 1
 
 # Help ensure your application will always spawn in the symlinked "current" directory that Capistrano sets up
 working_directory "/home/scottmotte/apps/believenutritionbar.com/current"
